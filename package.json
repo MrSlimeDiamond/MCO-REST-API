@@ -1,0 +1,22 @@
+{
+  "name": "rest-api-playing-idk",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.10",
+    "express": "^4.17.3",
+    "fs": "^0.0.1-security",
+    "minecraft-server-util": "^5.2.9",
+    "morgan": "^1.10.0",
+    "path": "^0.12.7",
+    "prettier": "^2.6.1",
+    "request": "^2.88.2"
+  }
+}
