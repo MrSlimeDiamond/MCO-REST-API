@@ -6,10 +6,11 @@ const mcu = require("minecraft-server-util");
 const fs = require("fs");
 const path = require('path');
 const app = express();
+const config = require("./config.json")
 app.use(express.json());
 app.listen(
-    7777, () => {
-        console.log("Listening on http://localhost:7777");
+    config.port, () => {
+        console.log("Listening on htt://localhost:" + config.port);
     }
 );
 async function getMcoAPI(script, argument) { // Made by IconPippi
