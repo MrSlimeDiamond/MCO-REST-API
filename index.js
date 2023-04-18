@@ -80,6 +80,54 @@ app.get("/api/mco/player/:username", async (req, res) => {
     }
 });
 
+app.get("/api/mco/playtime/:username", async (req, res) => {
+    const { username } = req.params
+    const correctname = await getMcoAPI("getcorrectname", username)
+    const playtime = await getMcoAPI("gettimeonline", correctname)
+
+        if (correctname == "NOTFOUND") {
+            res.status(400).send({
+                "error": "Could not find player"
+        })
+    } else {
+        res.status(200).send({
+            "playtime": playtime
+        })
+    }
+})
+
+app.get("/api/mco/firstseen/:username", async (req, res) => {
+    const { username } = req.params
+    const correctname = await getMcoAPI("getcorrectname", username)
+    const firstseen = await getMcoAPI("getfirstseen_unix", correctname)
+
+        if (correctname == "NOTFOUND") {
+            res.status(400).send({
+                "error": "Could not find player"
+        })
+    } else {
+        res.status(200).send({
+            "firstseen": firstseen
+        })
+    }
+})
+
+app.get("/api/mco/lastseen/:username", async (req, res) => {
+    const { username } = req.params
+    const correctname = await getMcoAPI("getcorrectname", username)
+    const lastseen = await getMcoAPI("getlastseen_unix", correctname)
+
+        if (correctname == "NOTFOUND") {
+            res.status(400).send({
+                "error": "Could not find player"
+        })
+    } else {
+        res.status(200).send({
+            "lastseen": lastseen
+        })
+    }
+})
+
 app.get("/bancount", async (req, res) => {
 
     const bancount = await getMcoAPI("getbancount.sh");
